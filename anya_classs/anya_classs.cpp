@@ -1,4 +1,5 @@
 #include <iostream>
+#include<fstream>
 #include<cmath>
 using namespace std;
 class triangle
@@ -57,6 +58,25 @@ public:
             exit(228);
         }
     }
+    void fout()
+    {
+
+        ofstream ff;
+        ff.open("file2.txt");
+            ff << a << b << c;
+            ff.close();
+
+    }
+    void fin()
+    {
+
+        ifstream ff;
+        ff.open("file1.txt");
+        int z, x, v;
+        ff >> z >> x >> v;
+        ff.close();
+        set_size(z, x, v);
+    }
 
     triangle& operator ++ (int val)
     {
@@ -90,10 +110,10 @@ public:
 };
 int main()
 {
-    int z, x, v;
-    cin >> z >> x >> v;
     triangle tri(2, 2, 2); // create not null triangle
-    tri.set_size(z, x, v); // set triangle size
+                            //int z,x,v
+                           //tri.set_size(z, x, v); // set triangle size
+    tri.fin();//read from file to a,b,c - storony
     tri.is_real();// can tri be real?
     tri.space();// ploshchad' of tri
     tri.perimetr();
@@ -103,5 +123,6 @@ int main()
     tri.vivod();
     tri * 5;//tri.(a,b,c)*5
     tri.vivod();
+    tri.fout();
     return 0;
 }
