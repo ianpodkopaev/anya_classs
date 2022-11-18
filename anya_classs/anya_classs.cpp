@@ -63,7 +63,9 @@ public:
 
         ofstream ff;
         ff.open("file2.txt");
-            ff << a << b << c;
+        ff << a << endl;
+        ff << b << endl;
+        ff << c << endl;
             ff.close();
 
     }
